@@ -1,0 +1,122 @@
+#root {
+  max-width: 1920px;
+  margin: none;
+  text-align: center;
+  width: 100vw;
+ 
+}
+
+body {
+  margin: 0;
+  font-weight: 600;
+  font-family: Arial, sans-serif;
+  background-color: #d5d0cf;
+  display: flex;
+  justify-content: center;
+ 
+}
+
+.app-logo {
+  display: block; /* Center horizontally */
+  margin: 20px auto; /* Adjust the margin as needed */
+  margin-top: 0;
+  padding-top: 20px;
+  width: 400px; /* Set the width according to your design */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+.search-bar {
+  width: 80%;
+  max-width: 400px;
+  padding: 8px;
+  margin: 16px 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #333;
+  color: white;
+}
+
+.app {
+  text-align: center;
+}
+
+.light {
+  background-color: rgb(202, 194, 194);
+  color: black;
+}
+
+.dark {
+  background-color: rgb(8, 8, 8);
+  color: rgb(17, 17, 17);
+}
+
+.toggle-button {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem; /* Adjust size of the emoji */
+  cursor: pointer;
+  padding: 5px;
+  margin-top: 30px;
+}
+
+.toggle-button:hover {
+  transform: scale(1.2); /* Slightly increase size on hover */
+}
+
+.app h1 {
+  font-size: 3rem; /* Increase font size */
+  font-weight: bold; /* Make the font bold */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add a subtle shadow */
+  margin-bottom: 20px; /* Add some space below */
+  margin-top: 0;
+  padding-top: 20px;
+  text-transform: uppercase; /* Make text uppercase */
+  letter-spacing: 2px; /* Add spacing between letters */
+  transition: transform 0.3s; /* Add a transition effect for hover */
+}
+
+/* Add hover effect */
+.app h1:hover {
+  transform: scale(1.05); /* Slightly increase the size on hover */
+}
+
+
+.series-list {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  justify-content: center;
+  
+}
+
+.series-card {
+  border-radius: 8px;
+  background-color: rgb(245, 240, 240); 
+  padding: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  overflow: hidden;
+}
+
+.series-card:hover {
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.series-image {
+  width: 300px;
+  height: 350px;
+  border-radius: 8px;
+}
+
+.results-container {
+  display: f;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 60vh; /* Adjust the height to ensure there's space to center */
+}
+
