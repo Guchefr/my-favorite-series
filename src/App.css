@@ -120,3 +120,25 @@ body {
   min-height: 60vh; /* Adjust the height to ensure there's space to center */
 }
 
+.toggle-form-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.series-form {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.submit {
+  background-color: #007bff;
+}
