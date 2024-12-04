@@ -1,4 +1,3 @@
-// src/components/SeriesForm.tsx
 import React, { useState } from 'react';
 
 interface SeriesFormProps {
