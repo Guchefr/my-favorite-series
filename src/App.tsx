@@ -1,5 +1,17 @@
 // src/App.tsx
 import { useState, useEffect } from "react";
+import type { SetStateAction } from "react";
+
+interface Series {
+	id: number;
+	title: string;
+	creator: string;
+	releaseDate: string;
+	genre: string;
+	image: string;
+	description: string;
+	trailerUrl: string;
+}
 import seriesData from "./data";
 import SeriesCard from "./components/SeriesCard";
 import Modal from "./components/Modal";
@@ -8,12 +20,10 @@ import SeriesForm from "./components/SeriesForm";
 import logo from "./components/images/logo.png";
 import "./App.css";
 
-const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
-
 function App() {
 	const [seriesList, setSeriesList] = useState(seriesData);
 	const [searchTerm, setSearchTerm] = useState("");
-	const [selectedSeries, setSelectedSeries] = useState(null);
+	const [selectedSeries, setSelectedSeries] = useState<Series | null>(null);
 	const [isNightMode, setIsNightMode] = useState(false);
 	const [emoji, setEmoji] = useState("🎥");
 	const [loading, setLoading] = useState(true);
@@ -23,10 +33,27 @@ function App() {
 		series.title.toLowerCase().includes(searchTerm.toLowerCase()),
 	);
 
-	const handleAddSeries = (newSeries) => {
+	const handleAddSeries = (newSeries: {
+		title: string;
+		creator?: string;
+		releaseDate?: string;
+		genre?: string;
+		image: string;
+		description?: string;
+		trailerUrl?: string;
+	}) => {
 		setSeriesList((prevSeries) => [
 			...prevSeries,
-			{ ...newSeries, id: Date.now() },
+			{
+				id: Date.now(),
+				title: newSeries.title,
+				creator: newSeries.creator || "",
+				releaseDate: newSeries.releaseDate || "",
+				genre: newSeries.genre || "",
+				image: newSeries.image,
+				description: newSeries.description || "",
+				trailerUrl: newSeries.trailerUrl || "",
+			},
 		]);
 	};
 
@@ -34,7 +61,7 @@ function App() {
 		setIsFormVisible(!isFormVisible);
 	};
 
-	const handleCardClick = (series) => {
+	const handleCardClick = (series: SetStateAction<Series | null>) => {
 		setSelectedSeries(series);
 	};
 
@@ -61,7 +88,11 @@ function App() {
 		>
 			<div className="logo-container">
 				<img src={logo} alt="Logo" className="app-logo" />
-				<button className="toggle-button" onClick={toggleNightMode}>
+				<button
+					type="button"
+					className="toggle-button"
+					onClick={toggleNightMode}
+				>
 					{emoji}
 				</button>
 			</div>
@@ -83,6 +114,7 @@ function App() {
 				) : (
 					<div className="results-container">
 						<button
+							type="button"
 							onClick={toggleFormVisibility}
 							className="toggle-form-button"
 						>
@@ -96,6 +128,7 @@ function App() {
 						)}
 						<div className="series-list">
 							{filteredSeries.map((series) => (
+								// biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
 								<div key={series.id} onClick={() => handleCardClick(series)}>
 									<SeriesCard
 										title={series.title}
