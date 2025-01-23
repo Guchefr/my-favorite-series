@@ -3,7 +3,7 @@ const LoadingSpinner: React.FC = () => {
 		<div className="spinner-container">
 			<iframe
 				src="https://giphy.com/embed/MgRKCBGvlpqTENUzWk"
-				className="spinner" // Use className instead of class
+				className="spinner"
 				title="Loading..."
 				frameBorder="0"
 				width="600"
