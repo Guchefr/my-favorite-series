@@ -1,6 +1,3 @@
-// src/components/SeriesCard.tsx
-import React from "react";
-
 interface SeriesCardProps {
 	title: string;
 	creator?: string;
